@@ -1,16 +1,14 @@
 import "./styles.css";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import MetaTags from "react-meta-tags";
 import Fade from "react-reveal/Fade";
 import Flip from "react-reveal/Flip";
 import Chatbot from "react-chatbot-kit";
 import config from "./chatbotConfig";
-import MessageParser from "./MessageParser";
+import MessageParser from "./MessageParser"; // Import your existing MessageParser
 import ActionProvider from "./ActionProvider";
 import TypedReact from "./TypedReact";
 import logo from "./assets/volvo.png"; // Import your logo
-
 
 export default function App() {
   const [showBot, toggleBot] = useState(false);
@@ -18,31 +16,34 @@ export default function App() {
   return (
     <div className="App">
       <MetaTags>
-      <h1>Volvo CE Chatbot</h1>
-      <meta name="description" content="Repair AI assistance" />
-
+        <title>Volvo CE Chatbot</title>
+        <meta name="description" content="Repair AI assistance" />
       </MetaTags>
 
-            {/* Logo Section */}
+      {/* Logo Section */}
       <div className="logo-container">
         <img src={logo} alt="Volvo Logo" className="logo" width="200" />
       </div>
+
       <Fade bottom cascade>
         <h1>Volvo CE Chatbot</h1>
         <h2>Start chatting with the Volvo CE Chatbot!</h2>
       </Fade>
+
       <TypedReact />
+
       {showBot && (
         <Fade big>
           <div className="app-chatbot-container">
             <Chatbot
               config={config}
-              messageParser={MessageParser}
-              actionProvider={ActionProvider}
+              messageParser={MessageParser}  // Use your existing MessageParser
+              actionProvider={ActionProvider} // Use your existing ActionProvider
             />
           </div>
         </Fade>
       )}
+
       <Flip left cascade>
         <button
           className="app-chatbot-button"

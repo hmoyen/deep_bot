@@ -6,7 +6,7 @@ class ActionProvider {
   }
 
   handleGreeting = () => {
-    const message = this.createChatBotMessage("Hello! How can I assist you today?");
+    const message = this.createChatBotMessage("Hello! How can I assist you today?", { withAvatar: true});
     this.addMessageToState(message);
   };
 
@@ -16,6 +16,7 @@ class ActionProvider {
       {
         widget: "overview",
         loading: true,
+        withAvatar: true,
         terminateLoading: true,
         ...options
       }
@@ -25,13 +26,13 @@ class ActionProvider {
   };
 
   handleBotResponse = (responseText) => {
-    const message = this.createChatBotMessage(responseText);
+    const message = this.createChatBotMessage(responseText, { withAvatar: true});
     this.addMessageToState(message);
   };
 
   // Handle Thank You responses
   handleThankYou = () => {
-    const message = this.createChatBotMessage("You're welcome! How else can I assist you?");
+    const message = this.createChatBotMessage("You're welcome! How else can I assist you?", { withAvatar: true});
     this.addMessageToState(message);
   };
 

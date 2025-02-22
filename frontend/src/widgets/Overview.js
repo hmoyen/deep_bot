@@ -20,8 +20,8 @@ const GeneralOptions = (props) => {
       id: 3
     },
     {
-      name: "Maintenance schedules",
-      handler: props.actionProvider.handleMedicine,
+      name: "Voice Control",
+      handler: props.actionProvider.handleContact,
       id: 4
     }
   ];
